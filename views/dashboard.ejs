@@ -1,0 +1,24 @@
+<%- include partials/head -%>
+
+<title>Subterra - Dashboard</title>
+
+<%- include partials/header -%>
+
+<h1>Curriculum CMD: Subterra</h1>
+
+<p>
+  You are currently on the dashboard of this content management system.<br>
+  Navigate to the different features of Subterra, search for existing content on your website to make quick changes, or directly add a new page below.
+</p>
+
+<h2>Add new page</h2>
+
+<ul data-list="fold">
+  <% for (let i = 0; i < system.types.length; i++) { %>
+    <li>
+      <a href="/subterra/pages/add/<%= system.types[i] %>">Add <%= system.types[i] %></a>
+    </li>
+  <% } %>
+</ul>
+
+<%- include partials/footer -%>

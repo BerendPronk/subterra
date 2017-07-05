@@ -1,0 +1,31 @@
+</head>
+<body <%= feedback ? 'class=feedback-active' : '' %>>
+  <% if (feedback) { %>
+    <p data-type="feedback" class="<%= feedbackState %>">
+      <%= feedback %>
+    </p>
+  <% } %>
+
+  <% if (username) { %>
+    <header>
+      <p data-type="user">
+        Logged in as <span><%= username %></span>
+        <a href="/subterra/logout" class="button">Log out</a>
+      </p>
+
+      <nav>
+        <ul>
+          <li <%= pathname === '/subterra' ? 'data-active=true' : '' %>><a href="/subterra">Dashboard</a></li>
+          <li <%= pathname === '/subterra/menus' ? 'data-active=true' : '' %>><a href="/subterra/menus">Menus</a></li>
+          <li <%= pathname === '/subterra/types' ? 'data-active=true' : '' %>><a href="/subterra/types">Page types</a></li>
+          <li <%= pathname === '/subterra/pages' ? 'data-active=true' : '' %>><a href="/subterra/pages">Pages</a></li>
+        </ul>
+      </nav>
+
+      <form action="/subterra/search/" method="get">
+        <label for="query">Search content</label>
+        <input name="query" type="search" pattern="[a-zA-Z0-9\s]+" title="Only alphanumeric characters are allowed">
+        <input type="submit" value="Search">
+      </form>
+    </header>
+  <% } %>

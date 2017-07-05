@@ -1,0 +1,45 @@
+<%- include ../partials/head -%>
+
+<title>Add a menu</title>
+
+<%- include ../partials/header -%>
+
+<h1>Add a menu</h1>
+
+<p>
+  Select the pages you want to attach to this menu.
+</p>
+
+<form action="/subterra/menus/add" method="post" onsubmit="form.submit()">
+  <fieldset>
+    <legend>Name</legend>
+
+    <label>
+      Enter a name for the menu
+      <input name="name" type="text" pattern="[a-zA-Z0-9\s]+" title="Only alphanumeric characters are allowed" required>
+    </label>
+  </fieldset>
+  <fieldset>
+    <legend>Children</legend>
+
+    <ul data-list="selection"></ul>
+
+    <input name="children" type="hidden">
+
+    <label>
+      Select a page you want to attach as child (multiple possible)
+      <select onchange="selection.add('children')">
+        <option value="" disabled selected>Add a child</option>
+        <% for (let i = 0; i < system.pages.length; i++) { %>
+          <option value="<%= system.pages[i] %>">
+            <%= system.pages[i] %>
+          </option>
+        <% } %>
+      </select>
+    </label>
+  </fieldset>
+
+  <input type="submit" value="Publish">
+</form>
+
+<%- include ../partials/footer -%>

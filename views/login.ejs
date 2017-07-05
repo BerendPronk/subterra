@@ -1,0 +1,25 @@
+<%- include partials/head -%>
+
+<title>Subterra - Login</title>
+
+<%- include partials/header -%>
+
+<img data-image="logo" src="/subterra/assets/image/logo.svg" alt="Subterra logo">
+
+<h1>Login</h1>
+
+<form action="/subterra/login" method="post">
+  <fieldset>
+    <label>
+      Username
+      <input type="text" name="username">
+    </label>
+    <label>
+      Password
+      <input type="password" name="password">
+    </label>
+    <input type="submit" value="Log in">
+  </fieldset>
+</form>
+
+<%- include partials/footer -%>

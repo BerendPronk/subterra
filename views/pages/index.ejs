@@ -1,0 +1,42 @@
+<%- include ../partials/head -%>
+
+<title>Pages</title>
+
+<%- include ../partials/header -%>
+
+<h1>Pages</h1>
+
+<p>
+  This page is deticated to all the pages your website contains. Every page has it's page type, list of menu's, and content fields.<br>
+  Add a page by pressing the 'Add new page' button, or edit one by selecting it's title.
+</p>
+
+<button data-add="page" onclick="utils.toggleShow('#pageTypes')">Add new page</button>
+
+<ul data-list="fold" id="pageTypes" class="hidden">
+  <% for (let i = 0; i < system.types.length; i++) { %>
+    <li>
+      <a href="/subterra/pages/add/<%= system.types[i] %>">Add <%= system.types[i] %></a>
+    </li>
+  <% } %>
+</ul>
+
+<% if (system.pages.length > 0) { %>
+  <ul data-list="overview">
+    <% for (let i = 0; i < system.pages.length; i++) { %>
+      <li>
+        <a href="/subterra/pages/edit/<%= system.pages[i].id %>">
+          <%= system.pages[i].title %>
+          <span><%= system.pages[i].type %></span>
+        </a>
+        <button data-action="delete page" onclick="utils.removeItem('pages', <%= system.pages[i].id %>)">delete</button>
+      </li>
+    <% } %>
+  </ul>
+<% } else { %>
+  <p data-type="no-results">
+    No pages found.
+  </p>
+<% } %>
+
+<%- include ../partials/footer -%>

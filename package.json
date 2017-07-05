@@ -1,0 +1,56 @@
+{
+  "name": "subterra",
+  "version": "0.0.1",
+  "description": "A Free Open-Source Lightweight Node.js Content Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BerendPronk/subterra.git"
+  },
+  "keywords": [
+    "Free",
+    "Open-source",
+    "Open source",
+    "Open",
+    "Source",
+    "Node",
+    "Nodejs",
+    "Node JS",
+    "Node.js",
+    "CMS",
+    "Content Management System",
+    "Lightweight",
+    "Small",
+    "Little",
+    "Speed",
+    "Expendable",
+    "Dynamic",
+    "Menu",
+    "Menus",
+    "Type",
+    "Types",
+    "Page type",
+    "Page types",
+    "Page",
+    "Pages"
+  ],
+  "author": "Berend Pronk (berendpronk1994@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BerendPronk/subterra/issues"
+  },
+  "homepage": "https://github.com/BerendPronk/subterra#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.15.3",
+    "multer": "^1.3.0",
+    "mysql": "^2.13.0"
+  }
+}

@@ -1,0 +1,81 @@
+<%- include ../partials/head -%>
+
+<title>Edit page type '<%= type.name %>'</title>
+
+<%- include ../partials/header -%>
+
+<h1>
+  Edit page type<br>
+  <span>'<%= type.name %>'</span>
+</h1>
+
+<p>
+  Edit the list of modules set as default modules if a '<%= type.name %>' is created.
+</p>
+
+<button data-action="delete type" onclick="utils.removeItem('types', <%= type.id %>)">Delete '<%= type.name %>'</button>
+
+<form action="/subterra/types/edit/<%= type.id %>" method="post" onsubmit="form.submit()">
+  <fieldset>
+    <legend>Name</legend>
+
+    <label>
+      Edit the name of this page type
+      <input name="name" type="text" pattern="[a-zA-Z0-9\s]+" title="Only alphanumeric characters are allowed" value="<%= type.name %>" required>
+    </label>
+  </fieldset>
+  <fieldset>
+    <legend>Category</legend>
+
+    <input id="category" name="category" type="checkbox" value="true" <%= type.isCategory ? 'checked' : '' %>>
+    <label for="category">
+      Can this page type function as a category?
+    </label>
+  </fieldset>
+  <fieldset>
+    <legend>Modules</legend>
+
+    <ul data-list="selection">
+      <% for (let i = 0; i < type.modules.length; i++) { %>
+        <li data-order="<%= i %>">
+          <span data-type="modules-name"><%= type.modules[i] %></span>
+          <ul data-list="selection-features">
+            <li>
+              <button data-action="move-up" title="Move selection up" onclick="selection.order('modules', 'up')" <%= i === 0 ? 'disabled' : '' %>>
+                <span>Move up</span>
+              </button>
+            </li>
+            <li>
+              <button data-action="move-down" title="Move selection down" onclick="selection.order('modules', 'down')" <%= i === type.modules.length - 1 ? 'disabled' : '' %>>
+                <span>Move up</span>
+              </button>
+            </li>
+            <li>
+              <button data-action="delete" title="Delete selection" onclick="selection.delete('modules')">
+                <span>Delete</span>
+              </button>
+            </li>
+          </ul>
+        </li>
+      <% } %>
+    </ul>
+
+    <input name="modules" type="hidden" value="<%= type.modules %>">
+
+    <label>
+      Edit the default modules included in this page type (multiple possible)
+      <select onchange="selection.add('modules')">
+        <option value="" disabled selected>Add another module</option>
+        <% for (let i = 0; i < system.modules.length; i++) { %>
+          <option value="<%= system.modules[i] %>">
+            <%= system.modules[i] %>
+          </option>
+        <% } %>
+      </select>
+    </label>
+  </fieldset>
+
+  <input type="submit" value="Save">
+</form>
+
+<%- include ../partials/footer -%>

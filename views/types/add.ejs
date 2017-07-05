@@ -1,0 +1,53 @@
+<%- include ../partials/head -%>
+
+<title>Add a page type</title>
+
+<%- include ../partials/header -%>
+
+<h1>Add a page type</h1>
+
+<p>
+  Select all module you want to set as default modules if a new page with this type is created.
+</p>
+
+<form action="/subterra/types/add" method="post" onsubmit="form.submit()">
+  <fieldset>
+    <legend>Name</legend>
+
+    <label>
+      Enter a name for this page type
+      <input name="name" type="text" pattern="[a-zA-Z0-9\s]+" title="Only alphanumeric characters are allowed" required>
+    </label>
+  </fieldset>
+  <fieldset>
+    <legend>Category</legend>
+
+    <input id="category" name="category" type="checkbox" value="true">
+    <label for="category">
+      Can this page type function as a category?
+    </label>
+  </fieldset>
+  <fieldset>
+    <legend>Modules</legend>
+
+    <ul data-list="selection"></ul>
+
+    <input name="modules" type="hidden">
+
+    <label>
+      Select a default module to include in this page type (multiple possible)
+      <select onchange="selection.add('modules')">
+        <option value="" disabled selected>Add a module</option>
+        <% for (let i = 0; i < system.modules.length; i++) { %>
+          <option value="<%= system.modules[i] %>">
+            <%= system.modules[i] %>
+          </option>
+        <% } %>
+      </select>
+    </label>
+  </fieldset>
+
+  <input type="submit" value="Publish">
+</form>
+
+<%- include ../partials/footer -%>

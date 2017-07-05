@@ -1,0 +1,73 @@
+<%- include ../partials/head -%>
+
+<title>Edit menu '<%= menu.name %>'</title>
+
+<%- include ../partials/header -%>
+
+<h1>
+  Edit menu<br>
+  '<%= menu.name %>'
+</h1>
+
+<p>
+  Edit the list of attached pages of this menu.
+</p>
+
+<button data-action="delete menu" onclick="utils.removeItem('menus', <%= menu.id %>)">Delete '<%= menu.name %>'</button>
+
+<form action="/subterra/menus/edit/<%= menu.id %>" method="post" onsubmit="form.submit()">
+  <fieldset>
+    <legend>Name</legend>
+
+    <label>
+      Edit the name of the menu
+      <input name="name" type="text" pattern="[a-zA-Z0-9\s]+" title="Only alphanumeric characters are allowed" value="<%= menu.name %>" required>
+    </label>
+  </fieldset>
+  <fieldset>
+    <legend>Modules</legend>
+
+    <ul data-list="selection">
+      <% for (let i = 0; i < menu.children.length; i++) { %>
+        <li data-order="<%= i %>">
+          <span data-type="children-name"><%= menu.children[i] %></span>
+          <ul data-list="selection-features">
+            <li>
+              <button data-action="move-up" title="Move selection up" onclick="selection.order('children', 'up')" <%= i === 0 ? 'disabled' : '' %>>
+                <span>Move up</span>
+              </button>
+            </li>
+            <li>
+              <button data-action="move-down" title="Move selection down" onclick="selection.order('children', 'down')" <%= i === menu.children.length - 1 ? 'disabled' : '' %>>
+                <span>Move up</span>
+              </button>
+            </li>
+            <li>
+              <button data-action="delete" title="Delete selection" onclick="selection.delete('children')">
+                <span>Delete</span>
+              </button>
+            </li>
+          </ul>
+        </li>
+      <% } %>
+    </ul>
+
+    <input name="children" type="hidden" value="<%= menu.children %>">
+
+    <label>
+      Select a page you want to attach as child (multiple possible)
+      <select onchange="selection.add('children')">
+        <option value="" disabled selected>Add another page</option>
+        <% for (let i = 0; i < system.pages.length; i++) { %>
+          <option value="<%= system.pages[i] %>">
+            <%= system.pages[i] %>
+          </option>
+        <% } %>
+      </select>
+    </label>
+  </fieldset>
+
+  <input type="submit" value="Save">
+</form>
+
+<%- include ../partials/footer -%>
