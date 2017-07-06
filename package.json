@@ -1,7 +1,7 @@
 {
   "name": "subterra",
-  "version": "0.0.1",
-  "description": "A Free Open-Source Lightweight Node.js Content Management System",
+  "version": "0.0.2",
+  "description": "A Free Open-Source Lightweight Content Management System, running on Node.js and MySQL",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
@@ -20,6 +20,11 @@
     "Nodejs",
     "Node JS",
     "Node.js",
+    "Database",
+    "DB",
+    "MySQL",
+    "My SQL",
+    "SQL",
     "CMS",
     "Content Management System",
     "Lightweight",
