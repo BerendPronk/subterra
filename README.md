@@ -11,6 +11,7 @@ Officially made for a school project, but converted to a downloadable npm-packag
   - [Server environment](#server-environment)
   - [File-structure](#file-structure)
   - [Files to add](#files-to-add)
+- [Acces Subterra](#access-subterra)
 - [Questions, bugs and support](#questions-bugs-and-support)
 - [License](#license)
 
@@ -51,8 +52,8 @@ DB_PASSWORD=( Database password )
 DB_DATABASE=( The name of the database your site will use, however you want to name it )
 DB_PORT=3306
 
-SUBTERRA_USERNAME=( Admin username to Subterra, to your preference )
-SUBTERRA_PASSWORD=( Admin password to Subterra, to your preference )
+SUBTERRA_USERNAME=( Admin username to Subterra, to your preference (Can only be edited via a MySQL query via tools like MySQL Workbench) )
+SUBTERRA_PASSWORD=( Admin password to Subterra, to your preference (Can only be edited via a MySQL query via tools like MySQL Workbench) )
 
 CRYPTO_KEY=( The key to encrypt the administrator password, must be an integer (larger numbers are better) )
 
@@ -419,6 +420,11 @@ module.exports = router;
 </body>
 </html>
 ```
+
+---
+
+## Access Subterra
+Navigate to `/subterra` and log in with the administrator data you added in the [server environment file](#server-environment).
 
 ---
 
