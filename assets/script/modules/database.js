@@ -13,13 +13,13 @@ const create = (connection, opts) => {
     connection.query(`
       CREATE DATABASE IF NOT EXISTS \`${ opts.subterraDB }\` /*!40100 DEFAULT CHARACTER SET utf8 */;
     `, (err, databaseLog) => {
-      console.log(`[Database] Database '${ opts.subterraDB }' has succesfully been created`);
+      // console.log(`[Database] Database '${ opts.subterraDB }' has succesfully been created`);
 
       // Select newly created database
       connection.query(`
         USE \`${ opts.subterraDB }\`;
       `, (err, useLog) => {
-        console.log(`[Database] Succesfully selected the '${ opts.subterraDB }' database`);
+        // console.log(`[Database] Succesfully selected the '${ opts.subterraDB }' database`);
 
         // Create 'menus' table if it doesn't exist
         connection.query(`
@@ -30,7 +30,7 @@ const create = (connection, opts) => {
             PRIMARY KEY (\`id\`)
           ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
         `, (err, menusLog) => {
-          console.log(`[Database] Succesfully created the 'menus' table for the '${ opts.subterraDB }' database`);
+          // console.log(`[Database] Succesfully created the 'menus' table for the '${ opts.subterraDB }' database`);
 
           // Create 'modules' table if it doesn't exist
           connection.query(`
@@ -40,7 +40,7 @@ const create = (connection, opts) => {
               PRIMARY KEY (\`id\`)
             ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
           `, (err, modulesLog) => {
-            console.log(`[Database] Succesfully created the 'modules' table for the '${ opts.subterraDB }' database`);
+            // console.log(`[Database] Succesfully created the 'modules' table for the '${ opts.subterraDB }' database`);
 
             connection.query(`
               INSERT IGNORE INTO modules (id, name)
@@ -52,7 +52,7 @@ const create = (connection, opts) => {
                   (5, 'embed'),
                   (6, 'button');
             `, (err, moduleNameLog) => {
-              console.log(`[Database] Succesfully added modules in the 'modules' table`);
+              // console.log(`[Database] Succesfully added modules in the 'modules' table`);
 
               // Create 'pages' table if it doesn't exist
               connection.query(`
@@ -66,7 +66,7 @@ const create = (connection, opts) => {
                   PRIMARY KEY (\`id\`)
                 ) ENGINE=InnoDB AUTO_INCREMENT=189 DEFAULT CHARSET=utf8;
               `, (err, pagesLog) => {
-                console.log(`[Database] Succesfully created the 'pages' table for the '${ opts.subterraDB }' database`);
+                // console.log(`[Database] Succesfully created the 'pages' table for the '${ opts.subterraDB }' database`);
 
                 // Create 'types' table if it doesn't exist
                 connection.query(`
@@ -78,7 +78,7 @@ const create = (connection, opts) => {
                     PRIMARY KEY (\`id\`)
                   ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
                 `, (err, typesLog) => {
-                  console.log(`[Database] Succesfully created the 'types' table for the '${ opts.subterraDB }' database`);
+                  // console.log(`[Database] Succesfully created the 'types' table for the '${ opts.subterraDB }' database`);
 
                   // Create 'users' table if it doesn't exist
                   connection.query(`
@@ -89,14 +89,15 @@ const create = (connection, opts) => {
                       PRIMARY KEY (\`id\`)
                     ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
                   `, (err, usersLog) => {
-                    console.log(`[Database] Succesfully created the 'users' table for the '${ opts.subterraDB }' database`);
+                    // console.log(`[Database] Succesfully created the 'users' table for the '${ opts.subterraDB }' database`);
 
                     // Create an admin account for subterra
                     connection.query(`
                       INSERT IGNORE INTO users (id, username, password)
                       VALUES (1, '${ opts.subterraUsername }', '${ opts.subterraPassword }');
                     `, (err, adminLog) => {
-                      console.log(`[Subterra] Succesfully created the admin '${ opts.subterraUsername }'`);
+                      // console.log(`[Subterra] Succesfully created the admin '${ opts.subterraUsername }'`);
+                      console.log(`[Database] '${ opts.subterraDB }' has succesfully been set-up and is ready for use`);
 
                       // Return created database
                       return opts.subterraDB;
