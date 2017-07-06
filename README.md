@@ -1,5 +1,3 @@
-_README assets are in development_
-
 # Subterra
 *From Latin Sub Terra ("Under Earth; Underground; Layer below your application").*
 
@@ -27,7 +25,7 @@ Subterra is:
 - Exendable
 - Dynamic
 - Built in Node.js and MySQL
-- Made with ~love~ the [OST of Hotline Miami](https://www.youtube.com/watch?v=oKD-MVfC9Ag) on headphones
+- Made with ~love~ the [OST of Hotline Miami](http://store.steampowered.com/app/219152/Hotline_Miami_Soundtrack/) on headphones
 
 ## Installation
 Subterra is easily installed by typing the following command:
@@ -425,7 +423,7 @@ module.exports = router;
 ---
 
 ## Questions, bugs and support
-Is there something wrong with Subterra, or are you having trouble setting everything up? File an issue over on the [issueus page](https://github.com/BerendPronk/subterra/issues) of Subterra. The users of Subterra and I would love to help.
+Is there something wrong with Subterra, or are you having trouble setting everything up? File an issue over on the [issues page](https://github.com/BerendPronk/subterra/issues) of Subterra. The users of Subterra and I would love to help.
 
 Bugs and feature ideas should be filed as issues, as well.
 
