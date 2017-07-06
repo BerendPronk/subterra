@@ -712,11 +712,16 @@ footer a {
 
 /* Utility styles */
 p[data-type="no-results"] {
+  position: relative;
   max-width: 40em;
   padding: 1em;
   color: #121212;
   border-radius: .25rem;
   background-color: #fff;
+}
+
+p[data-type="no-results"] a {
+  text-decoration: underline;
 }
 
 .hidden {
