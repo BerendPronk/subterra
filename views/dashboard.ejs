@@ -14,10 +14,16 @@
 <h2>Add new page</h2>
 
 <ul data-list="fold">
-  <% for (let i = 0; i < system.types.length; i++) { %>
-    <li>
+  <% if (system.types.length > 0) { %>
+    <% for (let i = 0; i < system.types.length; i++) { %>
+      <li>
       <a href="/subterra/pages/add/<%= system.types[i] %>">Add <%= system.types[i] %></a>
-    </li>
+      </li>
+      <% } %>
+  <% } else { %>
+    <p data-type="no-results">
+      No page types found, <a href="/subterra/types/add">add a page type</a>.
+    </p>
   <% } %>
 </ul>
 
