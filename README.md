@@ -102,7 +102,7 @@ subterra.config({
 });
 
 // Define static-file serving
-app.use('/', express.static(__dirname + '/'))
+app.use('/', express.static(__dirname + '/'));
 
 // Set view engine to EJS
 app.set('view engine', 'ejs').set('views', viewArray);
@@ -112,7 +112,7 @@ app.use('/', require('./routes/main'));
 
 // Run the application
 app.listen(process.env.PORT || 3000, () => {
-	console.log('Server started');
+  console.log('Server started');
 });
 ```
 
@@ -240,7 +240,7 @@ router.get('/:id', (req, res) => {
                   `);
                 } else {
                   contentBlocks.push(`
-                    <a href="${ host }" class="button">Bekijk video</a>
+                    <a href="${ host }" class="button">Watch video</a>
                   `)
                 }
               break;
