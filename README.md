@@ -10,7 +10,7 @@ Officially made for a school project, but converted to a downloadable npm-packag
 - [Setup](#setup)
   - [Server environment](#server-environment)
   - [File-structure](#file-structure)
-  - [Files to add](#files-to-add)
+  - [Files to add](#files-to-add---the-blank-project-folder)
 - [Acces Subterra](#access-subterra)
 - [Questions, bugs and support](#questions-bugs-and-support)
 - [License](#license)
