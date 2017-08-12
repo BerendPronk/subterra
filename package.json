@@ -1,6 +1,6 @@
 {
   "name": "subterra",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A Free Open-Source Lightweight Content Management System, running on Node.js and MySQL",
   "main": "server.js",
   "scripts": {

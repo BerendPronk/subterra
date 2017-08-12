@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
   // Check if a session already exists
   if (!req.session.username) {
     // Provide feedback that login session has ended
-    res.redirect(`/subterra/login?feedback=Your login sessio ended. Log in again below.&state=negative`);
+    res.redirect(`/subterra/login?feedback=Your login session ended. Log in again below.&state=negative`);
     return;
   }
 
