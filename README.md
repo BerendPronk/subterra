@@ -10,7 +10,7 @@ Officially made for a school project, but converted to a downloadable npm-packag
 - [Setup](#setup)
   - [Server environment](#server-environment)
   - [File-structure](#file-structure)
-  - [Files to add](#files-to-add)
+  - [Files to add](#files-to-add---the-blank-project-folder)
 - [Acces Subterra](#access-subterra)
 - [Questions, bugs and support](#questions-bugs-and-support)
 - [License](#license)
@@ -26,7 +26,9 @@ Subterra is:
 - Extendable
 - Dynamic
 - Built in Node.js and MySQL
-- Made with ~love~ the [OST of Hotline Miami](http://store.steampowered.com/app/219152/Hotline_Miami_Soundtrack/) on headphones
+- Made with the [OST of Hotline Miami](http://store.steampowered.com/app/219152/Hotline_Miami_Soundtrack/) on headphones
+
+---
 
 ## Installation
 Subterra is easily installed by typing the following command:
@@ -66,7 +68,7 @@ An example `.env` file can also be found on the <a href="https://github.com/Bere
 Though the CMS itself is entirely dynamic, the file-structure it applies must be consistent with the next diagram. You do need to create certain files and folders for Subterra to function, but you are free to expand on these files as you please.
 
 ```
-project-folder
+subterra-project-folder
 ├─ media (An empty folder in which Subterra stores all image-uploads made via the CMS)
 ├─ node_modules (Subterra operates from here; folder is created when Subterra is installed)
 │  └─ ...
@@ -79,7 +81,7 @@ project-folder
 │  └─ page.ejs
 ├─ .env (The previously mentioned .env file)
 ├─ package.json (The package.json file from your own project)
-├─ server.js (The server your project runs on)
+└─ server.js (The server your project runs on)
 ```
 
 ### Files to add - The blank project folder
